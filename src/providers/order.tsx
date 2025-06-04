@@ -50,7 +50,7 @@ export function OrderProvider({ children }: OrderProviderProps){
   async function onRequestOpen(order_id: string){
     // console.log(order_id);
 
-    const token = getCookieClient();
+    const token = await getCookieClient();
 
     const response = await api.get("/order/detail", {
       headers:{
@@ -71,7 +71,7 @@ export function OrderProvider({ children }: OrderProviderProps){
   }
 
   async function finishOrder(order_id: string){
-    const token = getCookieClient();
+    const token = await getCookieClient();
 
     const data ={
       order_id: order_id,
